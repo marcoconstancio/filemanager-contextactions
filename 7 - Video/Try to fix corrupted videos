@@ -1,0 +1,15 @@
+#!/bin/bash
+#mount //192.168.248.15/disk_3t_1 $1 -t cifs --verbose -o user=marco,pass=nygel5,uid=1000,gid=100,rw
+#mount -t nfs4 192.168.248.15:/disk_3t_1 /media/marco/nfs_disk_3t_1/ -o rsize=8192,wsize=8192,timeo=14,intr,_netdev,async
+#mount $1
+find $1 -iname '*.avi' | while read f ; do
+        echo "fixing: $f"
+        #mencoder -forceidx -oac copy -ovc copy "$f" -o "${f%*.avi}"-fixed.avi
+        #mencoder -idx "$f" -ovc copy -oac copy -o "${f%*.avi}"-fixed.avi
+		ffmpeg -i  "$f" -acodec copy -vcodec copy  "${f%*.avi}"-fixed.avi
+		
+		if [ -f "${f%*.avi}-fixed.avi" ]; then
+			rm "$f"
+		fi
+done
+

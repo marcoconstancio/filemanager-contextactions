@@ -1,0 +1,7 @@
+#!/bin/bash
+for f in *part1.rar; do 
+	unrar x -y "$f"; 
+done
+for f in *part01.rar; do 
+	unrar x -y "$f"; 
+done

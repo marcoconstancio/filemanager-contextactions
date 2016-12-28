@@ -1,0 +1,9 @@
+#!/bin/bash
+# arepack -e --format=zip *.rar
+# rm *.rar
+# arepack -e --format=zip *.7z
+# rm *.7z
+
+#!/bin/bash
+for f in *.rar; do arepack -e --format=zip "$f"; done
+for f in *.7z; do arepack -e --format=zip "$f"; done

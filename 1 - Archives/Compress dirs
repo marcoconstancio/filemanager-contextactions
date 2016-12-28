@@ -1,0 +1,4 @@
+#!/bin/bash
+for dir in *; do
+    zip -r -9 "$dir".zip "$dir"/
+done

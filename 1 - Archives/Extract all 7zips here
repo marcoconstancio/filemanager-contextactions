@@ -1,0 +1,4 @@
+#!/bin/bash
+for f in *.7z; do 
+	7z x -y "$f"
+done

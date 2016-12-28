@@ -1,0 +1,9 @@
+#!/bin/bash
+for f in *part1.rar; do 
+	mkdir "${f%*.rar}"; 
+	unrar x -y "$f" "${f%*.rar}"; 
+done
+for f in *part01.rar; do 
+	mkdir "${f%*.rar}"; 
+	unrar x -y "$f" "${f%*.rar}"; 
+done

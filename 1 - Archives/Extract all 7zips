@@ -1,0 +1,5 @@
+#!/bin/bash
+for f in *.7z; do 
+	mkdir "${f%*.7z}"; 
+	7z x -y -o"${f%*.7z}" "$f"; 
+done

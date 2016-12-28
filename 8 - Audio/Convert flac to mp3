@@ -1,0 +1,8 @@
+#!/bin/bash
+#for a in *.flac; do
+#ffmpeg -i "$a" -qscale:a 0 "${a[@]/%flac/mp3}"
+#rm -rif "$a"
+parallel ffmpeg -i {} -qscale:a 0 {.}.mp3 ::: *.flac; rm -rif *.flac;
+#done
+
+

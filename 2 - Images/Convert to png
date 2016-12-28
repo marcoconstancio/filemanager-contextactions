@@ -1,0 +1,9 @@
+#!/bin/bash
+mogrify -format png *.bmp
+rm *.bmp
+mogrify -format png *.BMP
+rm *.BMP
+mogrify -format png *.jpg
+rm *.jpg
+mogrify -format png *.JPG
+rm *.JPG

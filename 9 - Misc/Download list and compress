@@ -1,0 +1,10 @@
+#!/bin/sh
+for f in *.txt; do 
+	mkdir "${f%*.txt}"; 
+	#wget  -nc --limit-rate=500k -P "${f%*.txt}" -i "$f";
+	wget -nc -w 1 --limit-rate=500k -P "${f%*.txt}" -i "$f";
+	zip -r -9 "${f%*.txt}".zip "${f%*.txt}"/*
+	rm -rif "${f%*.txt}"
+	rm -rif "$f"
+	sleep 60
+done

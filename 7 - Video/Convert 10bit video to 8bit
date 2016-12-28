@@ -1,0 +1,18 @@
+#!/bin/bash
+#mount //192.168.248.15/disk_3t_1 $1 -t cifs --verbose -o user=marco,pass=nygel5,uid=1000,gid=100,rw
+#mount -t nfs4 192.168.248.15:/disk_3t_1 /media/marco/nfs_disk_3t_1/ -o rsize=8192,wsize=8192,timeo=14,intr,_netdev,async
+#mount $1
+find $1 -iname '*.mkv' | while read f ; do
+	if ffprobe "$f" 2>&1 | grep "High 10"; then
+        echo "CONVERTING: $f"
+        x264 --preset veryfast --tune animation --crf 16 -o  "${f%*.mkv}"-8bit.mkv "$f"
+        mkvmerge -o "${f%*.mkv} [8bit].mkv" -D "$f" "${f%*.mkv}"-8bit.mkv
+	rm "${f%*.mkv}-8bit.mkv"
+		
+		if [ -f "${f%*.mkv} [8bit].mkv" ]; then
+			rm "$f"
+		fi
+    fi
+    #echo "Checked: $f"
+done
+#umount $1

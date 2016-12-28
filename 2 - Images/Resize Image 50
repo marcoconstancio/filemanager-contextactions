@@ -1,0 +1,9 @@
+#!/bin/bash
+mogrify -resize 50% *.jpg
+mogrify -resize 50% *.JPG
+mogrify -resize 50% *.png
+mogrify -resize 50% *.PNG
+mogrify -resize 50% *.bmp
+mogrify -resize 50% *.BMP
+mogrify -resize 50% *.gif
+mogrify -resize 50% *.GIF

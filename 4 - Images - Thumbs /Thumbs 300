@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -rif thumbs
+mkdir thumbs
+
+for i in *.jpg; do
+	/usr/bin/convert -thumbnail 300 "$i" thumbs/"$i"
+done
+
