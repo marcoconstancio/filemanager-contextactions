@@ -63,7 +63,8 @@ The easiest way is to copy one of the existing scripts and modify it to your nee
 
     chmod a+x newscript.sh
 or
-	chmod a+x newscript.py
+
+    chmod a+x newscript.py
 
 ## Disclaimer
 
